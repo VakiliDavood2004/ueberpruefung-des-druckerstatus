@@ -29,6 +29,24 @@ class LanguageSelector(QDialog):
         self.setLayout(layout)
         self.load_stylesheet()
 
+    def load_stylesheet(self):
+        css_path = os.path.join(os.path.dirname(__file__), "style.css")
+        try:
+            with open(css_path, "r", encoding="utf-8") as f:
+                self.setStyleSheet(f.read())
+        except Exception as e:
+            QMessageBox.critical(self, "Fehler", f"Fehler beim Laden style.css:\n{str(e)}")
+            sys.exit(1)
+
+    def get_selected_language(self):
+        return self.language_combobox.currentText()
+
+class ClickableLineEdit(QLineEdit):
+    def mousePressEvent(self, event):
+        super().mousePressEvent(event)
+        file_path, _ = QFileDialog.getOpenFileName(self, "CSV-Datei auswählen", "", "CSV Datei (*.csv);;All Files (*)")
+        if file_path:
+            self.setText(file_path)
 
 
 if __name__ == "__main__":
