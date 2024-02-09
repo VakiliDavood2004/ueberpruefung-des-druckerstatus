@@ -132,6 +132,14 @@ class PrinterStatusApp(QMainWindow):
         self.app = QApplication.instance()
         self.app.aboutToQuit.connect(self.on_closing)
         self.show()
+    def load_stylesheet(self):
+        css_path = os.path.join(os.path.dirname(__file__), "style.css")
+        try:
+            with open(css_path, "r", encoding="utf-8") as f:
+                self.setStyleSheet(f.read())
+        except Exception as e:
+            QMessageBox.critical(self, "Fehler", f"Fehler beim Laden  style.css:\n{str(e)}")
+            sys.exit(1)
 
 
 if __name__ == "__main__":
