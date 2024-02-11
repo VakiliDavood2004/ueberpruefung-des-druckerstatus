@@ -140,6 +140,47 @@ class PrinterStatusApp(QMainWindow):
         except Exception as e:
             QMessageBox.critical(self, "Fehler", f"Fehler beim Laden  style.css:\n{str(e)}")
             sys.exit(1)
+    def apply_translations(self, file_group, printer_group, details_group):
+        lang = self.selected_language
+        if lang == "Deutsch":
+            file_group.setTitle("Dateieinstellungen")
+            self.file_label.setText("CSV-Dateipfad:")
+            self.load_button.setText("Drucker laden")
+            printer_group.setTitle("Druckerstatus")
+            self.printer_label.setText("Drucker auswählen:")
+            self.check_button.setText("Status prüfen")
+            self.report_button.setText("Statusbericht anzeigen")
+            details_group.setTitle("Detailstatus")
+            self.paper_label.setText("Papier:")
+            self.ink_label.setText("Tinte:")
+            self.toner_label.setText("Toner:")
+            self.board_label.setText("Platine:")
+        elif lang == "فارسی":
+            file_group.setTitle("تنظیمات فایل")
+            self.file_label.setText("مسیر فایل CSV:")
+            self.load_button.setText("بارگذاری پرینترها")
+            printer_group.setTitle("وضعیت پرینتر")
+            self.printer_label.setText("انتخاب پرینتر:")
+            self.check_button.setText("بررسی وضعیت")
+            self.report_button.setText("نمایش گزارش")
+            details_group.setTitle("وضعیت جزئیات")
+            self.paper_label.setText("کاغذ:")
+            self.ink_label.setText("جوهر:")
+            self.toner_label.setText("تونر:")
+            self.board_label.setText("برد:")
+        else:
+            file_group.setTitle("File Settings")
+            self.file_label.setText("CSV File Path:")
+            self.load_button.setText("Load Printers")
+            printer_group.setTitle("Printer Status")
+            self.printer_label.setText("Select Printer:")
+            self.check_button.setText("Check Status")
+            self.report_button.setText("Show Report")
+            details_group.setTitle("Detailed Status")
+            self.paper_label.setText("Paper:")
+            self.ink_label.setText("Ink:")
+            self.toner_label.setText("Toner:")
+            self.board_label.setText("Board:")
 
 
 if __name__ == "__main__":
