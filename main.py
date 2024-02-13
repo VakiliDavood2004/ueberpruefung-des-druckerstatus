@@ -181,6 +181,28 @@ class PrinterStatusApp(QMainWindow):
             self.ink_label.setText("Ink:")
             self.toner_label.setText("Toner:")
             self.board_label.setText("Board:")
+    def load_printers(self):
+        path = self.file_entry.text()
+        try:
+            with open(path, newline='', encoding='utf-8') as csvfile:
+                reader = csv.DictReader(csvfile)
+                self.printer_list = list(reader)
+                self.printer_combobox.clear()
+                self.clear_detailed_status()
+                names = [printer['PrinterName'] for printer in self.printer_list]
+                self.printer_combobox.addItems(names)
+        except Exception as e:
+            self.update_status_label("Overall Status", f"CSV Error: {str(e)}")
+
+    def get_printer_status(self, info):
+        try:
+            paper = info.get('Paper', 'False').lower() == 'true'
+            ink = info.get('Ink', 'False').lower() == 'true'
+            toner = info.get('Toner', 'False').lower() == 'true'
+            board = info.get('Board', 'False').lower() == 'true'
+            return paper, ink, toner, board
+        except Exception:
+            return None, None, None, None
 
 
 if __name__ == "__main__":
