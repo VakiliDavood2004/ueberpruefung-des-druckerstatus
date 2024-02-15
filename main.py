@@ -204,6 +204,27 @@ class PrinterStatusApp(QMainWindow):
         except Exception:
             return None, None, None, None
 
+    def update_detailed_status_labels(self, paper, ink, toner, board, printer_name):
+        self.update_label_with_status(self.paper_status_label, paper)
+        self.update_label_with_status(self.ink_status_label, ink)
+        self.update_label_with_status(self.toner_status_label, toner)
+        self.update_label_with_status(self.board_status_label, board)
+
+        status = "Ready" if all([paper, ink, toner, board]) else "Error"
+        if any(v is None for v in [paper, ink, toner, board]):
+            status = "Unknown"
+        self.update_status_label(f"Overall Status: {printer_name}", status)
+
+    def update_label_with_status(self, label, status):
+        if status is True:
+            label.setText("True")
+            label.setStyleSheet("color: green; font-weight: bold;")
+        elif status is False:
+            label.setText("False")
+            label.setStyleSheet("color: red; font-weight: bold;")
+        else:
+            label.setText("Error")
+            label.setStyleSheet("color: orange; font-weight: bold;")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
