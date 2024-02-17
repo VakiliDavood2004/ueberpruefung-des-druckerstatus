@@ -225,6 +225,39 @@ class PrinterStatusApp(QMainWindow):
         else:
             label.setText("Error")
             label.setStyleSheet("color: orange; font-weight: bold;")
+    def update_status_label(self, prefix, status):
+        self.status_label.setText(f"{prefix} - Status: {status}")
+        colors = {"Ready": "green", "Error": "red", "Unknown": "orange"}
+        color = colors.get(status, "black")
+        self.status_label.setStyleSheet(f"color: {color}; font-weight: bold;")
+
+    def clear_detailed_status(self):
+        self.paper_status_label.setText("")
+        self.ink_status_label.setText("")
+        self.toner_status_label.setText("")
+        self.board_status_label.setText("")
+        self.update_status_label("Overall Status", "Unknown")
+
+    def update_status_periodically(self):
+        if self.is_running and self.printer_combobox.count() > 0 and self.printer_combobox.currentIndex() != -1:
+            path = self.file_entry.text()
+            try:
+                with open(path, newline='', encoding='utf-8') as csvfile:
+                    reader = csv.DictReader(csvfile)
+                    self.printer_list = list(reader)
+                    name = self.printer_combobox.currentText()
+                    for printer in self.printer_list:
+                        if printer['PrinterName'] == name:
+                            paper, ink, toner, board = self.get_printer_status(printer)
+                            current_ok = all([paper, ink, toner, board])
+                            if self.last_status_ok and not current_ok:
+                                self.play_alert()
+                            self.last_status_ok = current_ok
+                            self.update_detailed_status_labels(paper, ink, toner, board, name)
+                            break
+            except Exception as e:
+                print("CSV error:", e)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
