@@ -258,6 +258,13 @@ class PrinterStatusApp(QMainWindow):
             except Exception as e:
                 print("CSV error:", e)
 
+    def check_printer_status(self):
+        name = self.printer_combobox.currentText()
+        for printer in self.printer_list:
+            if printer['PrinterName'] == name:
+                paper, ink, toner, board = self.get_printer_status(printer)
+                self.update_detailed_status_labels(paper, ink, toner, board, name)
+                break
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
