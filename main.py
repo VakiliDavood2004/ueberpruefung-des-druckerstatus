@@ -265,6 +265,10 @@ class PrinterStatusApp(QMainWindow):
                 paper, ink, toner, board = self.get_printer_status(printer)
                 self.update_detailed_status_labels(paper, ink, toner, board, name)
                 break
+    def play_alert(self):
+        sound_path = os.path.join(os.path.dirname(__file__), "alert.wav")
+        if os.path.exists(sound_path):
+            QSound.play(sound_path)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
