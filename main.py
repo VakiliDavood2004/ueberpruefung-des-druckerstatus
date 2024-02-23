@@ -269,6 +269,11 @@ class PrinterStatusApp(QMainWindow):
         sound_path = os.path.join(os.path.dirname(__file__), "alert.wav")
         if os.path.exists(sound_path):
             QSound.play(sound_path)
+    def show_report(self):
+        path = self.file_entry.text()
+        lang = self.selected_language
+        msg = analyze_printers(path, lang)
+        QMessageBox.information(self, "✔️ Druckerbericht", msg)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
