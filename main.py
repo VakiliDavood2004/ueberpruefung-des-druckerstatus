@@ -132,6 +132,7 @@ class PrinterStatusApp(QMainWindow):
         self.app = QApplication.instance()
         self.app.aboutToQuit.connect(self.on_closing)
         self.show()
+
     def load_stylesheet(self):
         css_path = os.path.join(os.path.dirname(__file__), "style.css")
         try:
@@ -140,6 +141,7 @@ class PrinterStatusApp(QMainWindow):
         except Exception as e:
             QMessageBox.critical(self, "Fehler", f"Fehler beim Laden  style.css:\n{str(e)}")
             sys.exit(1)
+
     def apply_translations(self, file_group, printer_group, details_group):
         lang = self.selected_language
         if lang == "Deutsch":
@@ -181,6 +183,7 @@ class PrinterStatusApp(QMainWindow):
             self.ink_label.setText("Ink:")
             self.toner_label.setText("Toner:")
             self.board_label.setText("Board:")
+
     def load_printers(self):
         path = self.file_entry.text()
         try:
@@ -225,6 +228,7 @@ class PrinterStatusApp(QMainWindow):
         else:
             label.setText("Error")
             label.setStyleSheet("color: orange; font-weight: bold;")
+
     def update_status_label(self, prefix, status):
         self.status_label.setText(f"{prefix} - Status: {status}")
         colors = {"Ready": "green", "Error": "red", "Unknown": "orange"}
@@ -265,15 +269,21 @@ class PrinterStatusApp(QMainWindow):
                 paper, ink, toner, board = self.get_printer_status(printer)
                 self.update_detailed_status_labels(paper, ink, toner, board, name)
                 break
+
     def play_alert(self):
         sound_path = os.path.join(os.path.dirname(__file__), "alert.wav")
         if os.path.exists(sound_path):
             QSound.play(sound_path)
+
     def show_report(self):
         path = self.file_entry.text()
         lang = self.selected_language
         msg = analyze_printers(path, lang)
         QMessageBox.information(self, "✔️ Druckerbericht", msg)
+
+    def on_closing(self):
+        self.is_running = False
+        self.timer.stop()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
