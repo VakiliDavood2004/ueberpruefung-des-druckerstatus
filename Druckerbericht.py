@@ -33,3 +33,8 @@ def analyze_printers(csv_path, language="فارسی"):
             "error": "Fehler beim Lesen der CSV-Datei:"
 
     }
+
+    lang = translations.get(language, translations["فارسی"])
+
+    if not os.path.exists(csv_path):
+        return lang["error"] + "\n" + csv_path
