@@ -38,3 +38,29 @@ def analyze_printers(csv_path, language="فارسی"):
 
     if not os.path.exists(csv_path):
         return lang["error"] + "\n" + csv_path
+    try:
+        with open(csv_path, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            healthy = []
+            faulty = []
+
+            for row in reader:
+                name = row.get("PrinterName", "Unbekannt")
+                faults = []
+                if row.get("Paper", "False").lower() != "true":
+                    faults.append(lang["paper"])
+                if row.get("Ink", "False").lower() != "true":
+                    faults.append(lang["ink"])
+                if row.get("Toner", "False").lower() != "true":
+                    faults.append(lang["toner"])
+                if row.get("Board", "False").lower() != "true":
+                    faults.append(lang["board"])
+
+                if faults:
+                    faulty.append(f"{name}: {', '.join(faults)}")
+                else:
+                    healthy.append(name)
+
+            report = lang["healthy_title"] + "\n" + ("\n".join(healthy) if healthy else lang["none"]) + "\n\n"
+            report += lang["faulty_title"] + "\n" + ("\n".join(faulty) if faulty else lang["none"])
+            return report
