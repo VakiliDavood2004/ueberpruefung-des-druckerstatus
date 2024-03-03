@@ -1,8 +1,11 @@
+# printer_report.py
+
 import csv
 import os
+
 def analyze_printers(csv_path, language="فارسی"):
     translations = {
-                "فارسی": {
+        "فارسی": {
             "healthy_title": "✅ پرینترهای سالم:",
             "faulty_title": "❌ پرینترهای دارای ایراد:",
             "paper": "کاغذ",
@@ -31,13 +34,14 @@ def analyze_printers(csv_path, language="فارسی"):
             "board": "Platine",
             "none": "Keine",
             "error": "Fehler beim Lesen der CSV-Datei:"
-
+        }
     }
 
     lang = translations.get(language, translations["فارسی"])
 
     if not os.path.exists(csv_path):
         return lang["error"] + "\n" + csv_path
+
     try:
         with open(csv_path, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
@@ -64,3 +68,6 @@ def analyze_printers(csv_path, language="فارسی"):
             report = lang["healthy_title"] + "\n" + ("\n".join(healthy) if healthy else lang["none"]) + "\n\n"
             report += lang["faulty_title"] + "\n" + ("\n".join(faulty) if faulty else lang["none"])
             return report
+
+    except Exception as e:
+        return f"{lang['error']}\n{str(e)}"
