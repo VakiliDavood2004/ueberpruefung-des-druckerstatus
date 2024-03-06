@@ -32,3 +32,34 @@ QPushButton {
     border-radius: 5px;
     font-size: 12px;
 }
+QPushButton:hover {
+    background-color: #0056b3;
+}
+
+QComboBox {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 8px;
+    font-size: 12px;
+    background-color: #f8f8f8;
+}
+
+QComboBox::drop-down {
+    border: 0px;
+}
+
+QLabel[text*="Status:"] {
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+QLabel[text="True"] {
+    color: green;
+    font-weight: bold;
+}
+
+QLabel[text="False"] {
+    color: red;
+    font-weight: bold;
+}
