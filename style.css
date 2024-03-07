@@ -63,3 +63,12 @@ QLabel[text="False"] {
     color: red;
     font-weight: bold;
 }
+QLabel[text*="Error"] {
+    color: red;
+    font-weight: bold;
+}
+
+QLabel[text*="Unknown"] {
+    color: orange;
+    font-weight: bold;
+}
