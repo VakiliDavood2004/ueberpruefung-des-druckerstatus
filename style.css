@@ -32,6 +32,7 @@ QPushButton {
     border-radius: 5px;
     font-size: 12px;
 }
+
 QPushButton:hover {
     background-color: #0056b3;
 }
@@ -63,6 +64,7 @@ QLabel[text="False"] {
     color: red;
     font-weight: bold;
 }
+
 QLabel[text*="Error"] {
     color: red;
     font-weight: bold;
@@ -72,6 +74,7 @@ QLabel[text*="Unknown"] {
     color: orange;
     font-weight: bold;
 }
+
 QDialog {
     background-color: #ffffff;
     border: 1px solid #ccc;
@@ -98,4 +101,8 @@ QPushButton#languageButton {
     padding: 8px 16px;
     border-radius: 5px;
     font-size: 13px;
+}
+
+QPushButton#languageButton:hover {
+    background-color: #218838;
 }
