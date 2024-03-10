@@ -1,3 +1,90 @@
+# **🇬🇧 Explanation in the English language**
+
+## 🖨️ Überprüfung des Druckerstatus
+
+A graphical application built with **Python + PyQt5** for checking and monitoring the status of multiple printers via a CSV file.  
+This tool features a clean, modern, multilingual interface supporting **English, German, and Persian**.
+
+## 📌 Features
+- Manual and automatic status checks for selected printers (every 2 seconds)
+- Audible alerts when status changes from “Healthy” to “Faulty”
+- Full language support: English / Deutsch / فارسی
+- Detailed reports listing both working and faulty printers in the selected language
+- Custom CSS-based UI styling using Qt StyleSheet
+- Loads printer status data from a standard CSV file
+
+## 📁 Project Structure
+
+| File / Folder Path       | Description |
+|--------------------------|-------------|
+| `main.py`                | Main file to run the application |
+| `style.css`              | Custom CSS styles for the GUI |
+| `assets/`                | Folder for graphic and audio resources |
+| `assets/icon.png`        | Program icon |
+| `assets/alert.wav`       | Audio file for alert notifications |
+| `data/`                  | Data folder |
+| `data/sample.csv`        | Sample file for testing |
+| `printer_report.py`      | Module for printer status reporting |
+| `README.md`              | Project documentation and instructions |
+
+## 📄 Input CSV File Structure
+The file must contain the following columns:
+
+```csv
+PrinterName,Paper,Ink,Toner,Board  
+HP LaserJet 1020,True,True,False,True  
+Canon Pixma G3000,True,False,True,True  
+Epson L3150,False,True,True,True  
+Brother HL-L2350,True,True,True,True  
+```
+
+Each field represents the status of a printer component (`True` for working, `False` for faulty).
+
+## 🚀 How to Run
+1. Install dependencies:
+```
+pip install PyQt5
+```
+
+2. Start the application:
+```
+python main.py
+```
+
+3. Usage steps:
+- Select your preferred language (English, German, Persian)  
+- Load your CSV file  
+- View live status of selected printers  
+- Automatic checking every 2 seconds  
+- Use the “Report” button to generate a list of working and faulty printers  
+
+## 🌐 Supported Languages
+🇬🇧 English  🇩🇪 Deutsch  🇮🇷 فارسی  
+All interface elements, buttons, and report outputs appear in the selected language.
+
+## 📊 Sample Report Output (English)
+
+✅ **Healthy Printers**  
+- Brother HL-L2350  
+
+❌ **Faulty Printers**  
+- Canon Pixma G3000 → Ink issue  
+- HP LaserJet 1020 → Toner issue  
+- Epson L3150 → Paper issue  
+
+## 🔔 Important Notes
+- The `alert.wav` file must be placed inside the `assets/` folder or next to `main.py`.  
+- CSV files should be encoded in **UTF-8 without BOM**.  
+- If you encounter “codec” or “charmap” errors, check the file’s encoding settings.  
+- For quick testing, use the `sample.csv` file located in the `data/` folder.
+
+## 👨‍💻 Developer
+This project was designed and implemented by **Davood Vakili**, with a focus on hands-on PyQt5 development, modern GUI design, and building a multilingual monitoring system. Every component has been carefully structured and crafted to deliver a professional and user-friendly experience.
+
+
+---
+
+
 # **✔️ توضیحات به زبان فارسی**
 
 # 🖨️ Überprüfung des Druckerstatus
