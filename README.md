@@ -1,3 +1,90 @@
+# **🇩🇪 Erklärung in deutscher Sprache**
+
+## 🖨️ Überprüfung des Druckerstatus
+
+Ein grafisches Tool entwickelt mit **Python + PyQt5** zur Überwachung des Zustands mehrerer Drucker basierend auf einer CSV-Datei.  
+Die Anwendung bietet eine einfache, ansprechende und mehrsprachige Benutzeroberfläche mit Unterstützung für **Deutsch, Englisch und Persisch**.
+
+## 📌 Funktionen
+- Manuelle und automatische Statusüberprüfung des ausgewählten Druckers (alle 2 Sekunden)
+- Akustischer Alarm bei Statusänderung von „OK“ zu „Fehlerhaft“
+- Vollständige Sprachunterstützung: Deutsch / English / فارسی
+- Bericht über funktionierende und fehlerhafte Drucker in der gewählten Sprache
+- Benutzeroberfläche im eigenen CSS-Stil (Qt StyleSheet)
+- Einlesen der Druckerdaten aus einer standardisierten CSV-Datei
+
+## 📁 Projektstruktur
+
+| Datei / Ordnerpfad       | Beschreibung |
+|--------------------------|--------------|
+| `main.py`                | Hauptdatei zum Starten der Anwendung |
+| `style.css`              | Benutzerdefinierte CSS-Stile für die GUI |
+| `assets/`                | Ordner für grafische und akustische Ressourcen |
+| `assets/icon.png`        | Programmsymbol |
+| `assets/alert.wav`       | Audiodatei für Warnmeldungen |
+| `data/`                  | Datenordner |
+| `data/sample.csv`        | Beispieldatei zum Testen |
+| `printer_report.py`      | Modul zur Druckerstatus-Auswertung |
+| `README.md`              | Projektbeschreibung und Anleitung |
+
+## 📄 Struktur der CSV-Datei
+Die Datei muss folgende Spalten enthalten:
+
+```csv
+PrinterName,Paper,Ink,Toner,Board  
+HP LaserJet 1020,True,True,False,True  
+Canon Pixma G3000,True,False,True,True  
+Epson L3150,False,True,True,True  
+Brother HL-L2350,True,True,True,True  
+```
+
+Jede Spalte gibt den Status eines bestimmten Druckerkomponentenfeldes an (`True` für funktionsfähig, `False` für fehlerhaft).
+
+## 🚀 Ausführung
+1. Installation der Abhängigkeiten:
+```
+pip install PyQt5
+```
+
+2. Start der Anwendung:
+```
+python main.py
+```
+
+3. Bedienungsschritte:
+- Sprache auswählen (Deutsch, Englisch, Persisch)  
+- CSV-Datei laden  
+- Status des ausgewählten Druckers anzeigen  
+- Automatische Statusprüfung alle 2 Sekunden  
+- Bericht über alle funktionierenden und fehlerhaften Drucker generieren
+
+## 🌐 Unterstützte Sprachen
+🇩🇪 Deutsch  🇬🇧 English  🇮🇷 فارسی  
+Alle Texte, Schaltflächen und Berichtsformate passen sich der gewählten Sprache an.
+
+## 📊 Beispielausgabe (Deutsch)
+
+✅ **Funktionsfähige Drucker**  
+- Brother HL-L2350  
+
+❌ **Fehlerhafte Drucker**  
+- Canon Pixma G3000 → Fehler in der Tintenpatrone  
+- HP LaserJet 1020 → Fehler im Toner  
+- Epson L3150 → Papierfehler  
+
+## 🔔 Hinweise
+- Die Datei `alert.wav` muss sich im Ordner `assets/` oder im selben Verzeichnis wie `main.py` befinden.  
+- CSV-Dateien sollten mit **UTF-8 ohne BOM** kodiert sein.  
+- Bei Fehlern wie „codec“ oder „charmap“ sollte die Codierung überprüft werden.  
+- Für schnelle Tests kann die Datei `sample.csv` im Ordner `data/` verwendet werden.
+
+## 👨‍💻 Entwickler
+Dieses Projekt wurde von **Davood Vakili** konzipiert und umgesetzt – mit Fokus auf praktische PyQt5-Anwendung, modernes UI-Design und die Entwicklung eines mehrsprachigen Monitoring-Systems. Alle Schritte wurden sorgfältig und strukturiert ausgeführt, um ein professionelles und benutzerfreundliches Ergebnis zu gewährleisten.
+
+
+---
+
+
 # **🇬🇧 Explanation in the English language**
 
 ## 🖨️ Überprüfung des Druckerstatus
