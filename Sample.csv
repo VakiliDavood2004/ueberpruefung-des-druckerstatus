@@ -1,0 +1,12 @@
+PrinterName,Paper,Ink,Toner,Board
+Printer1,True,True,True,False
+Printer2,True,True,True,False
+Printer3,True,True,True,True
+Printer4,True,True,True,True
+Printer5,False,False,False,True
+Printer6,True,True,True,True
+Printer7,True,True,True,True
+Printer8,True,True,True,True
+Printer9,True,True,True,True
+Printer10,True,True,True,True
+

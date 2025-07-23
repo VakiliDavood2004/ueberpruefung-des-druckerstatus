@@ -1,0 +1,113 @@
+/* ---------- پنجره اصلی ---------- */
+QMainWindow {
+    background-color: #f5f5f5;
+}
+
+QGroupBox {
+    margin-top: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+QLabel {
+    font-size: 12px;
+    color: #333;
+}
+
+QLineEdit {
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: #f8f8f8;
+}
+
+QPushButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+QPushButton:hover {
+    background-color: #0056b3;
+}
+
+QComboBox {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 8px;
+    font-size: 12px;
+    background-color: #f8f8f8;
+}
+
+QComboBox::drop-down {
+    border: 0px;
+}
+
+QLabel[text*="Status:"] {
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+QLabel[text="True"] {
+    color: green;
+    font-weight: bold;
+}
+
+QLabel[text="False"] {
+    color: red;
+    font-weight: bold;
+}
+
+QLabel[text*="Error"] {
+    color: red;
+    font-weight: bold;
+}
+
+QLabel[text*="Unknown"] {
+    color: orange;
+    font-weight: bold;
+}
+
+/* ---------- پنجره انتخاب زبان ---------- */
+QDialog {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* فقط برای لیبل انتخاب زبان */
+QLabel#languageLabel {
+    font-size: 13px;
+    color: #333;
+}
+
+/* فقط برای ComboBox انتخاب زبان */
+QComboBox#languageCombo {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 13px;
+    background-color: #f0f0f0;
+}
+
+/* فقط برای دکمه OK در پنجره انتخاب زبان */
+QPushButton#languageButton {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+QPushButton#languageButton:hover {
+    background-color: #218838;
+}
