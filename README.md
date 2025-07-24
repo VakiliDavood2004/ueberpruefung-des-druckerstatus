@@ -1,4 +1,4 @@
-# **✔️ Erklärung in deutscher Sprache**
+# **🇩🇪 Erklärung in deutscher Sprache**
 
 # 🖨️ Überprüfung des Druckerstatus
 
@@ -82,7 +82,7 @@ Dieses Projekt wurde von **Davood Vakili** konzipiert und umgesetzt – mit Foku
 ---
 
 
-# **✔️ Explanation in the English language**
+# **🇬🇧 Explanation in the English language**
 
 # 🖨️ Überprüfung des Druckerstatus
 
