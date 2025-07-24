@@ -1,6 +1,6 @@
 # **🇩🇪 Erklärung in deutscher Sprache**
 
-# 🖨️ Überprüfung des Druckerstatus
+## 🖨️ Überprüfung des Druckerstatus
 
 Ein grafisches Tool entwickelt mit **Python + PyQt5** zur Überwachung des Zustands mehrerer Drucker basierend auf einer CSV-Datei.  
 Die Anwendung bietet eine einfache, ansprechende und mehrsprachige Benutzeroberfläche mit Unterstützung für **Deutsch, Englisch und Persisch**.
@@ -84,7 +84,7 @@ Dieses Projekt wurde von **Davood Vakili** konzipiert und umgesetzt – mit Foku
 
 # **🇬🇧 Explanation in the English language**
 
-# 🖨️ Überprüfung des Druckerstatus
+## 🖨️ Überprüfung des Druckerstatus
 
 A graphical application built with **Python + PyQt5** for checking and monitoring the status of multiple printers via a CSV file.  
 This tool features a clean, modern, multilingual interface supporting **English, German, and Persian**.
