@@ -14,15 +14,18 @@ Die Anwendung bietet eine einfache, ansprechende und mehrsprachige Benutzeroberf
 - Einlesen der Druckerdaten aus einer standardisierten CSV-Datei
 
 ## 📁 Projektstruktur
-├── main.py  
-├── style.css  
-├── assets/  
-│   └── icon.png      # Programmsymbol  
-│   └── alert.wav     # Alarmton-Datei  
-├── data/  
-│   └── sample.csv    # Beispieldatei zur Überprüfung  
-├── printer_report.py  
-└── README.md  
+
+| Datei / Ordnerpfad       | Beschreibung |
+|--------------------------|--------------|
+| `main.py`                | Hauptdatei zum Starten der Anwendung |
+| `style.css`              | Benutzerdefinierte CSS-Stile für die GUI |
+| `assets/`                | Ordner für grafische und akustische Ressourcen |
+| `assets/icon.png`        | Programmsymbol |
+| `assets/alert.wav`       | Audiodatei für Warnmeldungen |
+| `data/`                  | Datenordner |
+| `data/sample.csv`        | Beispieldatei zum Testen |
+| `printer_report.py`      | Modul zur Druckerstatus-Auswertung |
+| `README.md`              | Projektbeschreibung und Anleitung |
 
 ## 📄 Struktur der CSV-Datei
 Die Datei muss folgende Spalten enthalten:
@@ -98,15 +101,18 @@ This tool features a clean, modern, multilingual interface supporting **English,
 - Loads printer status data from a standard CSV file
 
 ## 📁 Project Structure
-├── main.py  
-├── style.css  
-├── assets/  
-│   └── icon.png      # Application icon  
-│   └── alert.wav     # Alert sound  
-├── data/  
-│   └── sample.csv    # Sample CSV file for testing  
-├── printer_report.py  
-└── README.md  
+
+| File / Folder Path       | Description |
+|--------------------------|-------------|
+| `main.py`                | Main file to run the application |
+| `style.css`              | Custom CSS styles for the GUI |
+| `assets/`                | Folder for graphic and audio resources |
+| `assets/icon.png`        | Program icon |
+| `assets/alert.wav`       | Audio file for alert notifications |
+| `data/`                  | Data folder |
+| `data/sample.csv`        | Sample file for testing |
+| `printer_report.py`      | Module for printer status reporting |
+| `README.md`              | Project documentation and instructions |
 
 ## 📄 Input CSV File Structure
 The file must contain the following columns:
